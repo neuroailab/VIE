@@ -68,7 +68,6 @@ def load_csv(csv_path, return_cate_lbls=False):
                 'sta': int(line_split[2]), 
                 'end': int(line_split[3]), 
                 'train': line_split[4], 
-                'flag': int(line_split[5]), 
                 'indx': curr_indx}
 
         if not curr_dict['cate'] in cate_list:

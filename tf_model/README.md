@@ -4,7 +4,7 @@ We first show how to train a VIE-3DResNet as an example, including pretraining o
 We then show how other models can be trained with minor modifications to the commands of training VIE-3DResNet.
 
 Due to legacy reasons, we only support tensorflow < 2.0. We have tested our codes with Python 3.7. 
-You also need to install [faiss-gpu](https://github.com/facebookresearch/faiss) and pytorch.
+You also need to install [faiss-gpu](https://github.com/facebookresearch/faiss)==1.6.1 and pytorch.
 
 ## VIE-3DResNet
 You can either start the training directly only using one gpu or do the training with the help of tfutils, which provides support for multi-gpu training.

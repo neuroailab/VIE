@@ -15,6 +15,7 @@ Make required changes to the following script to set the parameters and then run
 ```
 sh run_training.sh
 ```
+During training, k-nearest-neighbor validations will be performed on the validation videos of Kinetics. This validation is done by getting 5 clips from one validation video, finding 10 nearest neighbor for each clip separately in the memory bank of the training videos, combining the lables of these 10 neighbors in a weighted manner (see Instance Discrimination paper for details) to get class probabilities for one clip, and finally averaging the class prababilities across all 5 clips chosen.
 
 ### Transfer learning to Kinetics and ImageNet; fine-tuning to UCF101 and HMDB51
 For transfer learning to ImageNet, you need to first build ImageNet tfrecords following instructions in [LocalAggregation](https://github.com/neuroailab/LocalAggregation.git) repo. Then, run the following script:

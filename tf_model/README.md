@@ -28,6 +28,8 @@ For transfer learning to Kinetics:
 sh run_transfer_KN.sh
 ```
 
+The reported transfer learning performance has three keys: `top1_5`, `top1_7`, and `top1_9`. They are named as ResNet-18 has 9 "layers": the first convolution-pooling layer, and the remaining eight residual blocks. So `top1_5` means reading out from 5th layer (CONV3 in the paper), `top1_7` means reading out from 7th layer (CONV4 in the paper), and `top1_9` means reading out from the final layer (CONV5 in the paper).
+
 For finetuning experiments, we provide configs for reproducing both Table 2 and Table 3 results in the scripts, by default, the script will reproduce the Table 2 result. See the following scripts for how to generate the Table 3 result.
 For finetuning to UCF101:
 ```

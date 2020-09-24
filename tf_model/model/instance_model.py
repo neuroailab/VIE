@@ -157,15 +157,15 @@ def resnet_embedding(image,
         num_classes=num_classes, **model_kwargs)
 
     if skip_final_dense and get_all_layers is None:
-        return model(image, train, skip_final_dense=True, final_pooling=final_pooling)
+        return model(image, training=train, skip_final_dense=True, final_pooling=final_pooling)
         
     if get_all_layers:
         if model_type == 'slowfastsingle_avg' and slowfast_single_pooling:
             _, ending_points = model(
-                image, True, train, get_all_layers=get_all_layers)
+                image, True, training=train, get_all_layers=get_all_layers)
         else:
             _, ending_points = model(
-                image, train, get_all_layers=get_all_layers)
+                image, training=train, get_all_layers=get_all_layers)
         if model_type in ['slowsingle', 'slowsingle_avg', 
                           'slowfastsingle', 'slowfastsingle_avg']:
             all_layers = get_combined_resnet_all_layers(
@@ -174,7 +174,7 @@ def resnet_embedding(image,
             all_layers = get_resnet_all_layers(ending_points, get_all_layers)
         return all_layers
 
-    model_out = model(image, train, skip_final_dense=False)
+    model_out = model(image, training=train, skip_final_dense=False)
     return model_out
 
 

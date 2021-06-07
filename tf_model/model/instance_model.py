@@ -27,6 +27,11 @@ def get_resnet_all_layers(ending_points, get_all_layers):
     ending_dict = {}
     get_all_layers = get_all_layers.split(',')
     for idx, layer_out in enumerate(ending_points):
+        if 'all_raw' in get_all_layers:
+            layer_name = 'encode_{layer_idx}'.format(layer_idx = idx+1)
+            ending_dict[layer_name] = layer_out
+            continue
+
         # TODO: make this flexible?
         if len(layer_out.get_shape().as_list()) == 5:
             layer_out = tf.reduce_mean(layer_out, axis=2)
